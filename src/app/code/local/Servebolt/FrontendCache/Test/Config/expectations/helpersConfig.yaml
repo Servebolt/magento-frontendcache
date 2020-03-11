@@ -1,0 +1,16 @@
+#/**
+# * Copyright © 2016- Raske Sider AS <post@raskesider.no>. All rights reserved.
+# *
+# * See LICENSE.md for license details.
+# *
+# * @copyright   2016- Raske Sider AS <post@raskesider.no>
+# * @author      Miply <magento@miply.no>
+# */
+
+helpers:
+ Servebolt_FrontendCache_Helper_Config:    servebolt_frontendcache/config
+ Servebolt_FrontendCache_Helper_Layout:    servebolt_frontendcache/layout
+ Servebolt_FrontendCache_Helper_Request:   servebolt_frontendcache/request
+ Servebolt_FrontendCache_Helper_Debug:     servebolt_frontendcache/debug
+ Servebolt_FrontendCache_Helper_Checkout:  servebolt_frontendcache/checkout
+ Servebolt_FrontendCache_Helper_Formkey:   servebolt_frontendcache/formkey

@@ -1,0 +1,15 @@
+#/**
+# * Copyright © 2016- Raske Sider AS <post@raskesider.no>. All rights reserved.
+# *
+# * See LICENSE.md for license details.
+# *
+# * @copyright   2016- Raske Sider AS <post@raskesider.no>
+# * @author      Miply <magento@miply.no>
+# */
+
+module:
+  version: 1.2.0
+  code_pool: local
+  depends:
+    - Mage_Core
+    - Mage_Customer

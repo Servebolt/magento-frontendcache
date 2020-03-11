@@ -1,0 +1,22 @@
+#/**
+# * Copyright © 2016- Raske Sider AS <post@raskesider.no>. All rights reserved.
+# *
+# * See LICENSE.md for license details.
+# *
+# * @copyright   2016- Raske Sider AS <post@raskesider.no>
+# * @author      Miply <magento@miply.no>
+# */
+
+eav:
+eav:
+  customer:
+    - entity_id: 1
+      website_id: 1
+      email: test@example.com
+      firstname: Test
+      lastname: Test
+      group_id: 1
+      store_id: 1
+      is_active: 1
+      attribute_set_id: 0
+      dob: 1999-01-01

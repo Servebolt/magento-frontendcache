@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!--
+ * @package     Servebolt_FrontendCache
+ * @copyright   Copyright (c) 2016 Raske Sider AS
+ * @author      Miply <magento@miply.no>
+-->
+
+<config>
+    <modules>
+        <Servebolt_FrontendCache>
+            <version>1.2.0</version>
+        </Servebolt_FrontendCache>
+    </modules>
+
+    <global>
+        <blocks>
+            <servebolt_frontendcache>
+                <class>Servebolt_FrontendCache_Block</class>
+            </servebolt_frontendcache>
+        </blocks>
+
+        <helpers>
+            <servebolt_frontendcache>
+                <class>Servebolt_FrontendCache_Helper</class>
+            </servebolt_frontendcache>
+        </helpers>
+
+        <models>
+            <servebolt_frontendcache>
+                <class>Servebolt_FrontendCache_Model</class>
+            </servebolt_frontendcache>
+            <core>
+                <rewrite>
+                    <message_collection>Servebolt_FrontendCache_Model_Core_Message_Collection</message_collection>
+                </rewrite>
+            </core>
+        </models>
+
+        <resources>
+            <servebolt_frontendcache_setup>
+                <setup>
+                    <module>Servebolt_FrontendCache</module>
+                </setup>
+            </servebolt_frontendcache_setup>
+        </resources>
+    </global>
+
+    <frontend>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <servebolt_frontendcache_process_pre_dispatch>
+                        <class>servebolt_frontendcache/observer</class>
+                        <method>processPreDispatch</method>
+                    </servebolt_frontendcache_process_pre_dispatch>
+                </observers>
+            </controller_action_predispatch>
+            
+            <controller_action_postdispatch>
+                <observers>
+                    <servebolt_frontendcache_process_post_dispatch>
+                        <class>servebolt_frontendcache/observer</class>
+                        <method>processPostDispatch</method>
+                    </servebolt_frontendcache_process_post_dispatch>
+                </observers>
+            </controller_action_postdispatch>
+            
+            <customer_logout>
+                <observers>
+                    <servebolt_frontendcache_customer_logout>
+                        <class>servebolt_frontendcache/observer</class>
+                        <method>processLogout</method>
+                    </servebolt_frontendcache_customer_logout>
+                </observers>
+            </customer_logout>
+            
+            <servebolt_frontendcache_message_collection_clear_before>
+                <observers>
+                    <servebolt_frontendcache_session_clear_messages>
+                        <class>servebolt_frontendcache/observer</class>
+                        <method>processClearSessionMessages</method>
+                    </servebolt_frontendcache_session_clear_messages>
+                </observers>
+            </servebolt_frontendcache_message_collection_clear_before>
+            
+            <servebolt_frontendcache_message_collection_add_message_before>
+                <observers>
+                    <servebolt_frontendcache_session_clear_messages>
+                        <class>servebolt_frontendcache/observer</class>
+                        <method>processAddSessionMessage</method>
+                    </servebolt_frontendcache_session_clear_messages>
+                </observers>
+            </servebolt_frontendcache_message_collection_add_message_before>
+        </events>
+    </frontend>
+
+    <default>
+        <servebolt_frontendcache>
+            <enabled>0</enabled>
+            
+            <cookies>
+                <no-cache>
+                    <!--lifetime>600</lifetime-->
+                </no-cache>
+            </cookies>
+            
+            <headers>
+                <expires>
+                    <lifetime>600</lifetime>
+                </expires>
+            </headers>
+            
+            <allowed_requests>
+                <cms>
+                    <page />
+                </cms>
+                <catalog>
+                    <category>
+                        <view />
+                    </category>
+                    <product>
+                        <view />
+                    </product>
+                </catalog>
+            </allowed_requests>
+            
+            <disallowed_handles>
+                <customer_logged_in />
+            </disallowed_handles>
+            
+            <non_cacheable_uris>
+                <!-- special key to make BASE_URL not cacheable: servebolt_frontendcache_hompage_uri -->
+                <servebolt_frontendcache_hompage_uri>0</servebolt_frontendcache_hompage_uri>
+            </non_cacheable_uris>
+            
+            <formkey_bypass>
+                <enabled>0</enabled>
+                <bypass_requests>
+                    <checkout>
+                        <cart>
+                            <add />
+                        </cart>
+                    </checkout>
+                    <wishlist>
+                        <index>
+                            <add />
+                        </index>
+                    </wishlist>
+                    <catalog>
+                        <product_compare>
+                            <add />
+                        </product_compare>
+                    </catalog>
+                    <review>
+                        <product>
+                            <post />
+                        </product>
+                    </review>
+                </bypass_requests>
+            </formkey_bypass>
+
+            <debugging>
+                <enabled>0</enabled>
+                <cookies><![CDATA[XDEBUG_SESSION=PHPSTORM;]]></cookies>
+            </debugging>
+        </servebolt_frontendcache>
+    </default>
+
+    <phpunit>
+        <suite>
+            <modules>
+                <Servebolt_FrontendCache />
+            </modules>
+        </suite>
+    </phpunit>
+</config>

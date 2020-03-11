@@ -1,0 +1,18 @@
+{
+    "name": "servebolt/frontend-cache",
+    "license": "proprietary",
+    "type": "magento-module",
+    "description": "Marks Magento response as cacheable or not by external web cache, e.g. Ngnix or Varnish",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "require-dev": {
+        "ecomdev/ecomdev_phpunit": "*"
+    },
+    "authors":[
+        {
+            "name":"Miply",
+            "email":"magento@miply.no"
+        }
+    ]
+}

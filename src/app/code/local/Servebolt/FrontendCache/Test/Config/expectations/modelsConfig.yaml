@@ -1,0 +1,12 @@
+#/**
+# * Copyright © 2016- Raske Sider AS <post@raskesider.no>. All rights reserved.
+# *
+# * See LICENSE.md for license details.
+# *
+# * @copyright   2016- Raske Sider AS <post@raskesider.no>
+# * @author      Miply <magento@miply.no>
+# */
+
+helpers:
+ Servebolt_FrontendCache_Model_Observer:                 servebolt_frontendcache/observer
+ Servebolt_FrontendCache_Model_Core_Message_Collection:  core/message_collection
